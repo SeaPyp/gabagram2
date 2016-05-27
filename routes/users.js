@@ -6,7 +6,7 @@ var model = require('../models/user');
 /* GET users listing. */
 router.route('/')
   .get(controller.index)
-  .post(controller.create)
+  .post(controller.create);
 
 
 module.exports = router;

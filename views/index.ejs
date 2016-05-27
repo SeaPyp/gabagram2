@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+    <title>Node Authentication</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body        { padding-top:80px; }
+    </style>
 </head>
 <body>
-  <h1>Hi There</h1>
-  <p>Please login to continue:</p>
+<div class="container">
 
-  <form action="/login" method="post">
-    <div>
-      <label>email:</label>
-      <input type="text" name="email"/><br/>
-    </div>
-    <div>
-      <label>Password:</label>
-      <input type="password" name="password"/>
-    </div>
-    <div>
-      <input type="submit" value="Submit"/>
-    </div>
-  </form>
+    <div class="jumbotron text-center">
+        <h1><span></span>GABAGRAM</h1>
 
+        <p>Login or Register with:</p>
+
+        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span>Signup</a><br>
+        <p>Or use the following to log in:</p>
+        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span>Login</a>
+        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>
+    </div>
+
+</div>
+</body>
+</html>
+<!--
   <p>Or signup:</p>
   <button>SignUp</button><button>FacebookSignup</button>
   <div>
@@ -34,6 +40,7 @@
       <a href="/auth/facebook">Login with Facebook</a>
     <% } %>
   </div>
+</div> -->
 
 
 </body>

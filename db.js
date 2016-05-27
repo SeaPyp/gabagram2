@@ -5,7 +5,7 @@ mongoose.connect(mongoUrl, function(err){
   if(err){
     throw err;
   }
-  console.log('database connected');
+  console.log('database connected, yes');
 });
 
 module.exports = mongoose;

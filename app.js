@@ -14,6 +14,7 @@ var bodyParser    = require('body-parser');
 var session       = require('express-session');
 var port          = process.env.PORT || 3000;
 var db            =  require('./db.js')
+// var app           = angular.module('meanMapApp', ['addCtrl', 'geolocation', 'gservice']);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -41,6 +42,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(allowCrossDomain);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(session({ secret: 'unicorns', resave: false, saveUninitialized: false }));
 
 app.use('/', routes);
@@ -52,14 +55,14 @@ app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email'} ))
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', {
     successRedirect: '/api/gabs',
-    failureRedirect: '/'
+    failureRedirect: '/index'
   })
 );
+
 app.get("/logout", function(req, res){
   req.logout();
   res.redirect("/")
 })
-
 
 // var oauth2 = new OAuth2(process.env.FACEBOOK_API_KEY_GAB, process.env.FACEBOOK_API_SECRET_GAB, 'https://api.facebook.com/', null, 'oauth2/token', null);
 

@@ -6,8 +6,16 @@ var userSchema = new Schema({
   name    : String,
   email   : String,
   password: String,
-  gabs : [{ type: Schema.Types.ObjectId, ref: 'Gab' }]
+  gabs : [{ type: Schema.Types.ObjectId, ref: 'Gab' }],
+  access_token: String,
+  location: Number,
+
+  fb : {
+    id: String
+  }
 });
+
+userSchema.index({location: '2dsphere'});
 
 userSchema.methods.validatePassword = function(pwd) {
   return bcrypt.compareSync(password, this.local.password);
