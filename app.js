@@ -48,13 +48,13 @@ app.use(session({ secret: 'unicorns', resave: false, saveUninitialized: false })
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/api/gabs', gabs);
+app.use('/gabs', gabs);
 require('./config/passport')(passport)
 
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email'} ));
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', {
-    successRedirect: '/api/gabs',
+    successRedirect: '/gabs',
     failureRedirect: '/index'
   })
 );

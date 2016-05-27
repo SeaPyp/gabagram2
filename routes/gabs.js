@@ -3,7 +3,7 @@ var router = express.Router();
 var controller = require('../controllers/gabs');
 
 /* GET gabs listing. */
-router.route('/gabs')
+router.route('/')
   .get(controller.index)
   .post(controller.create)
 

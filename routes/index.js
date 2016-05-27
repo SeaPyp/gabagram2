@@ -9,7 +9,7 @@ router.get('/login', function(req, res, next){
 router.post('/login', function(req, res, next){
   console.log('post login', req.body);
   // if password and email are correct go to app
-  res.redirect('/map');
+  res.redirect('/gabs');
   // else go back to page
 });
 
